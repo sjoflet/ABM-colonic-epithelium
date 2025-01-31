@@ -1,8 +1,8 @@
-function [agent,dish,dish_labels,BT3,BT1,BT1,overwrite] = addpathogen(seed,tot,dish, dish_labels,agent,paramsBT3,BT1,BT2)
+function [agent,dish,dish_labels,bt3,bt1,bt2,overwrite] = addpathogen(seed,tot,dish, dish_labels,agent,paramsBT3,bt1,bt2)
 [x,y] = find(dish==0) ; 
 numstart = (length(agent))+1; 
 dummycount = 1 ; 
-BT3 = 0 ; 
+bt3 = 0 ; 
 
     cols = ceil(seed/tot) ; 
     remend = rem(seed,tot)+1 ; 
@@ -20,14 +20,14 @@ BT3 = 0 ;
                 agent{overwrite}.position = [ ] ;
 
                 if isa(agent{overwrite}, 'BT1')
-                    BT1 = BT1 - 1;
+                    bt1 = bt1 - 1;
                 end
                 if isa(agent{overwrite}, 'BT3')
-                    BT3 = BT3 - 1;
+                    bt3 = bt3 - 1;
                 end
 
                 if isa(agent{overwrite}, 'BT2')
-                    BT2 = BT2 - 1 ;
+                    bt2 = bt2 - 1 ;
                 end
 
                 pos = [count1,count2] ;
@@ -35,7 +35,7 @@ BT3 = 0 ;
                 last_rep = ceil(rand*paramsBT3.rep_rate) ;
                 food = ceil(rand*2) ;
                 agent{count} = BT3(paramsBT3.rep_rate, last_rep,food, pos,1) ;
-                BT3 = BT3 + 1 ;
+                bt3 = bt3 + 1 ;
                 count = count + 1 ; % next agent number
             end 
         end 
