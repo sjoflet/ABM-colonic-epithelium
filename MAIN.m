@@ -31,7 +31,7 @@ mkdir("ParentFolder", folder) % directs to ParentFolder within curent directory
 
 for countinput = 1:1:6  % for loop to run simulation repeatedly
 
-clearvars -except DEADPATH countinputs folder
+clearvars -except DEADPATH countinput folder
 
 % Create folder
 saveit = 1 ; % 1 = yes or 0 = no to keep folder making code
